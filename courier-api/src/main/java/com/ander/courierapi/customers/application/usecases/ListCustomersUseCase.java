@@ -5,6 +5,9 @@ import com.ander.courierapi.customers.domain.ports.CustomerRepository;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ListCustomersUseCase {
 
     private final CustomerRepository customerRepository;

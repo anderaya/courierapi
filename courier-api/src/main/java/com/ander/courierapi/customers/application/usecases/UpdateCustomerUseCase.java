@@ -8,6 +8,9 @@ import com.ander.courierapi.customers.domain.ports.CustomerRepository;
 
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class UpdateCustomerUseCase {
 
     private final CustomerRepository customerRepository;

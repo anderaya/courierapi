@@ -3,12 +3,14 @@ package com.ander.courierapi.customers.application.usecases;
 import java.util.UUID;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.ander.courierapi.customers.application.dto.CreateCustomerRequest;
 import com.ander.courierapi.customers.domain.model.Customer;
 import com.ander.courierapi.customers.domain.model.Role;
 import com.ander.courierapi.customers.domain.ports.CustomerRepository;
 
+@Service
 public class CreateCustomerUseCase {
 
     private final CustomerRepository customerRepository;
