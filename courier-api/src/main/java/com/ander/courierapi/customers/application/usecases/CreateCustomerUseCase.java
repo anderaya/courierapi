@@ -1,5 +1,6 @@
 package com.ander.courierapi.customers.application.usecases;
 
+import com.ander.courierapi.customers.application.dto.CreateCustomerRequest;
 import com.ander.courierapi.customers.domain.exceptions.EmailAlreadyExistsException;
 import com.ander.courierapi.customers.domain.model.Customer;
 import com.ander.courierapi.customers.domain.model.Role;
