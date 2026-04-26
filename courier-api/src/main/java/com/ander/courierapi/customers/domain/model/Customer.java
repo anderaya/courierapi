@@ -4,7 +4,7 @@ import com.ander.courierapi.customers.domain.exceptions.InvalidCustomerException
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-import com.ander.courierapi.customers.domain.model.Role;
+
 
 
 public class Customer {
@@ -30,8 +30,22 @@ public class Customer {
 
         validate();
     }
+    
+    public Customer(UUID id, String name, String email, String password, Role role, boolean active,
+			LocalDateTime createdAt2, LocalDateTime updatedAt2) {
+    	this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.isActive = active;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
 
-    private void validate() {
+        validate();
+	}
+
+	private void validate() {
         if (name == null || name.isBlank()) {
             throw new InvalidCustomerException("Name is required");
         }
