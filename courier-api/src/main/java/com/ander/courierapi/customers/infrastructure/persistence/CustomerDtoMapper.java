@@ -1,5 +1,7 @@
 package com.ander.courierapi.customers.infrastructure.persistence;
 
+import java.util.List;
+
 import com.ander.courierapi.customers.application.dto.CreateCustomerRequest;
 import com.ander.courierapi.customers.application.dto.CustomerResponse;
 import com.ander.courierapi.customers.domain.model.Customer;
@@ -29,5 +31,11 @@ public class CustomerDtoMapper {
                 customer.isActive(),
                 customer.getCreatedAt()
         );
+    }
+    
+    public static List<CustomerResponse> toResponseList(List<Customer> customers) {
+        return customers.stream()
+                .map(CustomerDtoMapper::toResponse)
+                .toList();
     }
 }
