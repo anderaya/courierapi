@@ -28,8 +28,7 @@ public class CustomerController {
 
     @PostMapping
     public CustomerResponse create(@Valid @RequestBody CreateCustomerRequest request) {
-    	Customer customer = CustomerDtoMapper.toDomain(request);
-        Customer saved = createCustomerUseCase.execute(customer);
+        Customer saved = createCustomerUseCase.execute(request);
         return CustomerDtoMapper.toResponse(saved);
     }
     
