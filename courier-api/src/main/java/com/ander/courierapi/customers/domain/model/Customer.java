@@ -46,20 +46,9 @@ public class Customer {
 	}
 
 	private void validate() {
-        if (name == null || name.isBlank()) {
-            throw new InvalidCustomerException("Name is required");
-        }
-
-        if (email == null || !email.contains("@")) {
-            throw new InvalidCustomerException("Invalid email");
-        }
-
-        if (password == null || password.length() < 6) {
-            throw new InvalidCustomerException("Password must have at least 6 characters");
-        }
-
-        if (role == null) {
-            throw new InvalidCustomerException("Role is required");
+        //acá se validan rreglas del negocio
+        if (role == Role.ADMIN && !email.endsWith("@empresa.com")) {
+            throw new InvalidCustomerException("Admin must have corporate email");
         }
     }
 
