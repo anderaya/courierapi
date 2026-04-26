@@ -1,11 +1,11 @@
-package com.ander.courierapi.courier_api.customer.domain.model;
-
 package com.ander.courierapi.customers.domain.model;
 
 import com.ander.courierapi.customers.domain.exceptions.InvalidCustomerException;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+import com.ander.courierapi.customers.domain.model.Role;
+
 
 public class Customer {
 
