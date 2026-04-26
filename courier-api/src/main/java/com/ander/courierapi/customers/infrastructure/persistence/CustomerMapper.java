@@ -19,15 +19,16 @@ public class CustomerMapper {
     }
 
     public static Customer toDomain(CustomerEntity entity) {
-        return new Customer(
+        Customer customer = new Customer(
                 entity.getId(),
                 entity.getName(),
                 entity.getEmail(),
                 entity.getPassword(),
-                Role.valueOf(entity.getRole().toUpperCase()),
+                Role.valueOf(entity.getRole()),
                 entity.isActive(),
                 entity.getCreatedAt(),
                 entity.getUpdatedAt()
         );
+        return customer;
     }
 }

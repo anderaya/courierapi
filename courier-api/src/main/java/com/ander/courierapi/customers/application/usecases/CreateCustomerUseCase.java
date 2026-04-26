@@ -1,12 +1,7 @@
 package com.ander.courierapi.customers.application.usecases;
 
-import com.ander.courierapi.customers.application.dto.CreateCustomerRequest;
-import com.ander.courierapi.customers.domain.exceptions.EmailAlreadyExistsException;
 import com.ander.courierapi.customers.domain.model.Customer;
-import com.ander.courierapi.customers.domain.model.Role;
 import com.ander.courierapi.customers.domain.ports.CustomerRepository;
-
-import java.util.UUID;
 
 public class CreateCustomerUseCase {
 
@@ -16,24 +11,12 @@ public class CreateCustomerUseCase {
         this.customerRepository = customerRepository;
     }
 
-    public Customer execute(CreateCustomerRequest request) {
+    public Customer execute(Customer customer) {
 
-        // 1. Validar email único
-        if (customerRepository.existsByEmail(request.email)) {
-            throw new EmailAlreadyExistsException(request.email);
+        if (customerRepository.existsByEmail(customer.getEmail())) {
+            throw new RuntimeException("Email already exists");
         }
 
-        // 2. Crear entidad
-        Customer customer = new Customer(
-                UUID.randomUUID(),
-                request.name,
-                request.email,
-                request.password, // luego se hashea
-                Role.valueOf(request.role),
-                true
-        );
-
-        // 3. Guardar
         return customerRepository.save(customer);
     }
 }
