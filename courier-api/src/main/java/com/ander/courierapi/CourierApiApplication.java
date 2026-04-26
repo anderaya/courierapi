@@ -1,4 +1,4 @@
-package com.ander.courierapi.courier_api;
+package com.ander.courierapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
